@@ -1,0 +1,68 @@
+// Máquina de Turing – Fibonacci en Unario
+
+digraph MT_Fibonacci {
+    rankdir=LR;
+    size="16,10";
+    node [shape=circle, style=filled, fillcolor=lightyellow, fontsize=10];
+    edge [fontsize=8];
+
+    // Estados
+    q_init [label="q_init
+Estado
+Inicial", fillcolor=lightblue];
+    q_base_1 [label="q_base_1
+Caso base
+n=1"];
+    q_setup [label="q_setup
+Convertir '1'
+a marcas X"];
+    q_loop [label="q_loop
+Bucle
+principal"];
+    q_copy [label="q_copy
+Copiar '1'
+al final"];
+    q_back [label="q_back
+Regresar
+al inicio"];
+    q_final [label="q_final
+ACEPTA", shape=doublecircle, fillcolor=lightgreen];
+
+    // Flecha de inicio
+    __start__ [shape=point];
+    __start__ -> q_init;
+
+    // Transiciones
+    q_back -> q_back [label="(blank, 1) →
+(blank, 1, L)\n(blank, #) →
+(blank, #, L)\n(blank, X) →
+(blank, X, L)"];
+    q_back -> q_loop [label="(blank, Y) →
+(blank, Y, L)"];
+    q_base_1 -> q_final [label="(blank, blank) →
+(blank, blank, L)"];
+    q_base_1 -> q_setup [label="(blank, 1) →
+(blank, X, R)"];
+    q_copy -> q_back [label="(1, blank) →
+(blank, 1, L)"];
+    q_copy -> q_copy [label="(1, X) →
+(1, X, R)\n(1, Y) →
+(1, Y, R)\n(1, #) →
+(1, #, R)\n(1, 1) →
+(1, 1, R)"];
+    q_init -> q_base_1 [label="(blank, 1) →
+(blank, 1, R)"];
+    q_init -> q_final [label="(blank, blank) →
+(blank, blank, S)"];
+    q_loop -> q_copy [label="(blank, X) →
+(1, Y, R)"];
+    q_loop -> q_final [label="(blank, blank) →
+(blank, blank, R)"];
+    q_loop -> q_loop [label="(blank, Y) →
+(blank, Y, L)\n(blank, 1) →
+(blank, 1, L)"];
+    q_setup -> q_loop [label="(blank, blank) →
+(blank, #, L)"];
+    q_setup -> q_setup [label="(blank, 1) →
+(blank, X, R)"];
+}
