@@ -1,0 +1,83 @@
+states:
+  - 'q_init'
+  - 'q_base_1'
+  - 'q_setup'
+  - 'q_loop'
+  - 'q_copy'
+  - 'q_back'
+  - 'q_final'
+
+initial_state: 'q_init'
+final_states:
+  - 'q_final'
+
+input_alphabet:
+  - '1'
+
+tape_alphabet:
+  - '1'
+  - 'X'
+  - 'Y'
+  - '#'
+  - !!null 'null'
+
+blank: !!null 'null'
+
+delta:
+  # --- Casos Base: Fib(0) y Fib(1) ---
+  - params: {initial_state: 'q_init', mem_cache_value: !!null 'null', tape_input: !!null 'null'}
+    output: {final_state: 'q_final', mem_cache_value: !!null 'null', tape_output: !!null 'null', tape_displacement: 'S'}
+  - params: {initial_state: 'q_init', mem_cache_value: !!null 'null', tape_input: '1'}
+    output: {final_state: 'q_base_1', mem_cache_value: !!null 'null', tape_output: '1', tape_displacement: 'R'}
+  - params: {initial_state: 'q_base_1', mem_cache_value: !!null 'null', tape_input: !!null 'null'}
+    output: {final_state: 'q_final', mem_cache_value: !!null 'null', tape_output: !!null 'null', tape_displacement: 'L'}
+
+  # --- Setup para n > 1 (Convierte entrada en contador X) ---
+  - params: {initial_state: 'q_base_1', mem_cache_value: !!null 'null', tape_input: '1'}
+    output: {final_state: 'q_setup', mem_cache_value: !!null 'null', tape_output: 'X', tape_displacement: 'R'}
+  - params: {initial_state: 'q_setup', mem_cache_value: !!null 'null', tape_input: '1'}
+    output: {final_state: 'q_setup', mem_cache_value: !!null 'null', tape_output: 'X', tape_displacement: 'R'}
+  - params: {initial_state: 'q_setup', mem_cache_value: !!null 'null', tape_input: !!null 'null'}
+    output: {final_state: 'q_loop', mem_cache_value: !!null 'null', tape_output: '#', tape_displacement: 'L'}
+
+  # --- Bucle de Procesamiento: Travesía Completa O(n^2) ---
+  - params: {initial_state: 'q_loop', mem_cache_value: !!null 'null', tape_input: 'X'}
+    output: {final_state: 'q_copy', mem_cache_value: '1', tape_output: 'Y', tape_displacement: 'R'}
+  - params: {initial_state: 'q_loop', mem_cache_value: !!null 'null', tape_input: 'Y'}
+    output: {final_state: 'q_loop', mem_cache_value: !!null 'null', tape_output: 'Y', tape_displacement: 'L'}
+  - params: {initial_state: 'q_loop', mem_cache_value: !!null 'null', tape_input: '1'}
+    output: {final_state: 'q_loop', mem_cache_value: !!null 'null', tape_output: '1', tape_displacement: 'L'}
+  - params: {initial_state: 'q_loop', mem_cache_value: !!null 'null', tape_input: !!null 'null'}
+    output: {final_state: 'q_final', mem_cache_value: !!null 'null', tape_output: !!null 'null', tape_displacement: 'R'}
+
+  # q_copy: Viaja al final de la cinta saltando todos los símbolos
+  - params: {initial_state: 'q_copy', mem_cache_value: '1', tape_input: 'X'}
+    output: {final_state: 'q_copy', mem_cache_value: '1', tape_output: 'X', tape_displacement: 'R'}
+  - params: {initial_state: 'q_copy', mem_cache_value: '1', tape_input: 'Y'}
+    output: {final_state: 'q_copy', mem_cache_value: '1', tape_output: 'Y', tape_displacement: 'R'}
+  - params: {initial_state: 'q_copy', mem_cache_value: '1', tape_input: '#'}
+    output: {final_state: 'q_copy', mem_cache_value: '1', tape_output: '#', tape_displacement: 'R'}
+  - params: {initial_state: 'q_copy', mem_cache_value: '1', tape_input: '1'}
+    output: {final_state: 'q_copy', mem_cache_value: '1', tape_output: '1', tape_displacement: 'R'}
+  - params: {initial_state: 'q_copy', mem_cache_value: '1', tape_input: !!null 'null'}
+    output: {final_state: 'q_back', mem_cache_value: !!null 'null', tape_output: '1', tape_displacement: 'L'}
+
+  # q_back: Regresa al inicio de la cinta
+  - params: {initial_state: 'q_back', mem_cache_value: !!null 'null', tape_input: '1'}
+    output: {final_state: 'q_back', mem_cache_value: !!null 'null', tape_output: '1', tape_displacement: 'L'}
+  - params: {initial_state: 'q_back', mem_cache_value: !!null 'null', tape_input: '#'}
+    output: {final_state: 'q_back', mem_cache_value: !!null 'null', tape_output: '#', tape_displacement: 'L'}
+  - params: {initial_state: 'q_back', mem_cache_value: !!null 'null', tape_input: 'Y'}
+    output: {final_state: 'q_loop', mem_cache_value: !!null 'null', tape_output: 'Y', tape_displacement: 'L'}
+  - params: {initial_state: 'q_back', mem_cache_value: !!null 'null', tape_input: 'X'}
+    output: {final_state: 'q_back', mem_cache_value: !!null 'null', tape_output: 'X', tape_displacement: 'L'}
+
+simulation_strings:
+  - ''
+  - '1'
+  - '11'
+  - '111'
+  - '1111'
+  - '11111'
+  - '111111'
+  - '1111111'

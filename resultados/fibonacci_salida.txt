@@ -1,0 +1,382 @@
+Simulación de Máquina de Turing: examples/fibonacci.yaml
+======================================================================
+
+CADENAS PREDEFINIDAS
+======================================================================
+
+Simulando cadena: 
+----------------------------------------------------------------------
+Paso 000: Cabeza:   0 | Estado: q_init | Cache: B | Cinta: [][q_init, B][]
+Paso 001: Cabeza:   0 | Estado: q_final | Cache: B | Cinta: [][q_final, B][None]
+
+Resultado final: ACEPTADA
+Pasos totales: 1
+Tiempo de ejecución: 80000 ns
+Cinta final: _
+======================================================================
+
+Simulando cadena: 1
+----------------------------------------------------------------------
+Paso 000: Cabeza:   0 | Estado: q_init | Cache: B | Cinta: [][q_init, B]['1']
+Paso 001: Cabeza:   1 | Estado: q_base_1 | Cache: B | Cinta: ['1'][q_base_1, B][None]
+Paso 002: Cabeza:   0 | Estado: q_final | Cache: B | Cinta: [][q_final, B]['1', None]
+
+Resultado final: ACEPTADA
+Pasos totales: 2
+Tiempo de ejecución: 328800 ns
+Cinta final: 1_
+======================================================================
+
+Simulando cadena: 11
+----------------------------------------------------------------------
+Paso 000: Cabeza:   0 | Estado: q_init | Cache: B | Cinta: [][q_init, B]['1', '1']
+Paso 001: Cabeza:   1 | Estado: q_base_1 | Cache: B | Cinta: ['1'][q_base_1, B]['1']
+Paso 002: Cabeza:   2 | Estado: q_setup | Cache: B | Cinta: ['1', 'X'][q_setup, B][None]
+Paso 003: Cabeza:   1 | Estado: q_loop | Cache: B | Cinta: ['1'][q_loop, B]['X', '#']
+Paso 004: Cabeza:   2 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y'][q_copy, '1']['#']
+Paso 005: Cabeza:   3 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', '#'][q_copy, '1'][None]
+Paso 006: Cabeza:   2 | Estado: q_back | Cache: B | Cinta: ['1', 'Y'][q_back, B]['#', '1']
+Paso 007: Cabeza:   1 | Estado: q_back | Cache: B | Cinta: ['1'][q_back, B]['Y', '#', '1']
+Paso 008: Cabeza:   0 | Estado: q_loop | Cache: B | Cinta: [][q_loop, B]['1', 'Y', '#', '1']
+Paso 009: Cabeza:   0 | Estado: q_loop | Cache: B | Cinta: [][q_loop, B][None, '1', 'Y', '#', '1']
+Paso 010: Cabeza:   1 | Estado: q_final | Cache: B | Cinta: [None][q_final, B]['1', 'Y', '#', '1']
+
+Resultado final: ACEPTADA
+Pasos totales: 10
+Tiempo de ejecución: 1267700 ns
+Cinta final: _1Y#1
+======================================================================
+
+Simulando cadena: 111
+----------------------------------------------------------------------
+Paso 000: Cabeza:   0 | Estado: q_init | Cache: B | Cinta: [][q_init, B]['1', '1', '1']
+Paso 001: Cabeza:   1 | Estado: q_base_1 | Cache: B | Cinta: ['1'][q_base_1, B]['1', '1']
+Paso 002: Cabeza:   2 | Estado: q_setup | Cache: B | Cinta: ['1', 'X'][q_setup, B]['1']
+Paso 003: Cabeza:   3 | Estado: q_setup | Cache: B | Cinta: ['1', 'X', 'X'][q_setup, B][None]
+Paso 004: Cabeza:   2 | Estado: q_loop | Cache: B | Cinta: ['1', 'X'][q_loop, B]['X', '#']
+Paso 005: Cabeza:   3 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'Y'][q_copy, '1']['#']
+Paso 006: Cabeza:   4 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'Y', '#'][q_copy, '1'][None]
+Paso 007: Cabeza:   3 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'Y'][q_back, B]['#', '1']
+Paso 008: Cabeza:   2 | Estado: q_back | Cache: B | Cinta: ['1', 'X'][q_back, B]['Y', '#', '1']
+Paso 009: Cabeza:   1 | Estado: q_loop | Cache: B | Cinta: ['1'][q_loop, B]['X', 'Y', '#', '1']
+Paso 010: Cabeza:   2 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y'][q_copy, '1']['Y', '#', '1']
+Paso 011: Cabeza:   3 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y'][q_copy, '1']['#', '1']
+Paso 012: Cabeza:   4 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y', '#'][q_copy, '1']['1']
+Paso 013: Cabeza:   5 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y', '#', '1'][q_copy, '1'][None]
+Paso 014: Cabeza:   4 | Estado: q_back | Cache: B | Cinta: ['1', 'Y', 'Y', '#'][q_back, B]['1', '1']
+Paso 015: Cabeza:   3 | Estado: q_back | Cache: B | Cinta: ['1', 'Y', 'Y'][q_back, B]['#', '1', '1']
+Paso 016: Cabeza:   2 | Estado: q_back | Cache: B | Cinta: ['1', 'Y'][q_back, B]['Y', '#', '1', '1']
+Paso 017: Cabeza:   1 | Estado: q_loop | Cache: B | Cinta: ['1'][q_loop, B]['Y', 'Y', '#', '1', '1']
+Paso 018: Cabeza:   0 | Estado: q_loop | Cache: B | Cinta: [][q_loop, B]['1', 'Y', 'Y', '#', '1', '1']
+Paso 019: Cabeza:   0 | Estado: q_loop | Cache: B | Cinta: [][q_loop, B][None, '1', 'Y', 'Y', '#', '1', '1']
+Paso 020: Cabeza:   1 | Estado: q_final | Cache: B | Cinta: [None][q_final, B]['1', 'Y', 'Y', '#', '1', '1']
+
+Resultado final: ACEPTADA
+Pasos totales: 20
+Tiempo de ejecución: 1384200 ns
+Cinta final: _1YY#11
+======================================================================
+
+Simulando cadena: 1111
+----------------------------------------------------------------------
+Paso 000: Cabeza:   0 | Estado: q_init | Cache: B | Cinta: [][q_init, B]['1', '1', '1', '1']
+Paso 001: Cabeza:   1 | Estado: q_base_1 | Cache: B | Cinta: ['1'][q_base_1, B]['1', '1', '1']
+Paso 002: Cabeza:   2 | Estado: q_setup | Cache: B | Cinta: ['1', 'X'][q_setup, B]['1', '1']
+Paso 003: Cabeza:   3 | Estado: q_setup | Cache: B | Cinta: ['1', 'X', 'X'][q_setup, B]['1']
+Paso 004: Cabeza:   4 | Estado: q_setup | Cache: B | Cinta: ['1', 'X', 'X', 'X'][q_setup, B][None]
+Paso 005: Cabeza:   3 | Estado: q_loop | Cache: B | Cinta: ['1', 'X', 'X'][q_loop, B]['X', '#']
+Paso 006: Cabeza:   4 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'Y'][q_copy, '1']['#']
+Paso 007: Cabeza:   5 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'Y', '#'][q_copy, '1'][None]
+Paso 008: Cabeza:   4 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'X', 'Y'][q_back, B]['#', '1']
+Paso 009: Cabeza:   3 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'X'][q_back, B]['Y', '#', '1']
+Paso 010: Cabeza:   2 | Estado: q_loop | Cache: B | Cinta: ['1', 'X'][q_loop, B]['X', 'Y', '#', '1']
+Paso 011: Cabeza:   3 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'Y'][q_copy, '1']['Y', '#', '1']
+Paso 012: Cabeza:   4 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'Y', 'Y'][q_copy, '1']['#', '1']
+Paso 013: Cabeza:   5 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'Y', 'Y', '#'][q_copy, '1']['1']
+Paso 014: Cabeza:   6 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'Y', 'Y', '#', '1'][q_copy, '1'][None]
+Paso 015: Cabeza:   5 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'Y', 'Y', '#'][q_back, B]['1', '1']
+Paso 016: Cabeza:   4 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'Y', 'Y'][q_back, B]['#', '1', '1']
+Paso 017: Cabeza:   3 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'Y'][q_back, B]['Y', '#', '1', '1']
+Paso 018: Cabeza:   2 | Estado: q_loop | Cache: B | Cinta: ['1', 'X'][q_loop, B]['Y', 'Y', '#', '1', '1']
+Paso 019: Cabeza:   1 | Estado: q_loop | Cache: B | Cinta: ['1'][q_loop, B]['X', 'Y', 'Y', '#', '1', '1']
+Paso 020: Cabeza:   2 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y'][q_copy, '1']['Y', 'Y', '#', '1', '1']
+Paso 021: Cabeza:   3 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y'][q_copy, '1']['Y', '#', '1', '1']
+Paso 022: Cabeza:   4 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y', 'Y'][q_copy, '1']['#', '1', '1']
+Paso 023: Cabeza:   5 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y', 'Y', '#'][q_copy, '1']['1', '1']
+Paso 024: Cabeza:   6 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y', 'Y', '#', '1'][q_copy, '1']['1']
+Paso 025: Cabeza:   7 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y', 'Y', '#', '1', '1'][q_copy, '1'][None]
+Paso 026: Cabeza:   6 | Estado: q_back | Cache: B | Cinta: ['1', 'Y', 'Y', 'Y', '#', '1'][q_back, B]['1', '1']
+Paso 027: Cabeza:   5 | Estado: q_back | Cache: B | Cinta: ['1', 'Y', 'Y', 'Y', '#'][q_back, B]['1', '1', '1']
+Paso 028: Cabeza:   4 | Estado: q_back | Cache: B | Cinta: ['1', 'Y', 'Y', 'Y'][q_back, B]['#', '1', '1', '1']
+Paso 029: Cabeza:   3 | Estado: q_back | Cache: B | Cinta: ['1', 'Y', 'Y'][q_back, B]['Y', '#', '1', '1', '1']
+Paso 030: Cabeza:   2 | Estado: q_loop | Cache: B | Cinta: ['1', 'Y'][q_loop, B]['Y', 'Y', '#', '1', '1', '1']
+Paso 031: Cabeza:   1 | Estado: q_loop | Cache: B | Cinta: ['1'][q_loop, B]['Y', 'Y', 'Y', '#', '1', '1', '1']
+Paso 032: Cabeza:   0 | Estado: q_loop | Cache: B | Cinta: [][q_loop, B]['1', 'Y', 'Y', 'Y', '#', '1', '1', '1']
+Paso 033: Cabeza:   0 | Estado: q_loop | Cache: B | Cinta: [][q_loop, B][None, '1', 'Y', 'Y', 'Y', '#', '1', '1', '1']
+Paso 034: Cabeza:   1 | Estado: q_final | Cache: B | Cinta: [None][q_final, B]['1', 'Y', 'Y', 'Y', '#', '1', '1', '1']
+
+Resultado final: ACEPTADA
+Pasos totales: 34
+Tiempo de ejecución: 4304300 ns
+Cinta final: _1YYY#111
+======================================================================
+
+Simulando cadena: 11111
+----------------------------------------------------------------------
+Paso 000: Cabeza:   0 | Estado: q_init | Cache: B | Cinta: [][q_init, B]['1', '1', '1', '1', '1']
+Paso 001: Cabeza:   1 | Estado: q_base_1 | Cache: B | Cinta: ['1'][q_base_1, B]['1', '1', '1', '1']
+Paso 002: Cabeza:   2 | Estado: q_setup | Cache: B | Cinta: ['1', 'X'][q_setup, B]['1', '1', '1']
+Paso 003: Cabeza:   3 | Estado: q_setup | Cache: B | Cinta: ['1', 'X', 'X'][q_setup, B]['1', '1']
+Paso 004: Cabeza:   4 | Estado: q_setup | Cache: B | Cinta: ['1', 'X', 'X', 'X'][q_setup, B]['1']
+Paso 005: Cabeza:   5 | Estado: q_setup | Cache: B | Cinta: ['1', 'X', 'X', 'X', 'X'][q_setup, B][None]
+Paso 006: Cabeza:   4 | Estado: q_loop | Cache: B | Cinta: ['1', 'X', 'X', 'X'][q_loop, B]['X', '#']
+Paso 007: Cabeza:   5 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'X', 'Y'][q_copy, '1']['#']
+Paso 008: Cabeza:   6 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'X', 'Y', '#'][q_copy, '1'][None]
+Paso 009: Cabeza:   5 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'X', 'X', 'Y'][q_back, B]['#', '1']
+Paso 010: Cabeza:   4 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'X', 'X'][q_back, B]['Y', '#', '1']
+Paso 011: Cabeza:   3 | Estado: q_loop | Cache: B | Cinta: ['1', 'X', 'X'][q_loop, B]['X', 'Y', '#', '1']
+Paso 012: Cabeza:   4 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'Y'][q_copy, '1']['Y', '#', '1']
+Paso 013: Cabeza:   5 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'Y', 'Y'][q_copy, '1']['#', '1']
+Paso 014: Cabeza:   6 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'Y', 'Y', '#'][q_copy, '1']['1']
+Paso 015: Cabeza:   7 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'Y', 'Y', '#', '1'][q_copy, '1'][None]
+Paso 016: Cabeza:   6 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'X', 'Y', 'Y', '#'][q_back, B]['1', '1']
+Paso 017: Cabeza:   5 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'X', 'Y', 'Y'][q_back, B]['#', '1', '1']
+Paso 018: Cabeza:   4 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'X', 'Y'][q_back, B]['Y', '#', '1', '1']
+Paso 019: Cabeza:   3 | Estado: q_loop | Cache: B | Cinta: ['1', 'X', 'X'][q_loop, B]['Y', 'Y', '#', '1', '1']
+Paso 020: Cabeza:   2 | Estado: q_loop | Cache: B | Cinta: ['1', 'X'][q_loop, B]['X', 'Y', 'Y', '#', '1', '1']
+Paso 021: Cabeza:   3 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'Y'][q_copy, '1']['Y', 'Y', '#', '1', '1']
+Paso 022: Cabeza:   4 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'Y', 'Y'][q_copy, '1']['Y', '#', '1', '1']
+Paso 023: Cabeza:   5 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'Y', 'Y', 'Y'][q_copy, '1']['#', '1', '1']
+Paso 024: Cabeza:   6 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'Y', 'Y', 'Y', '#'][q_copy, '1']['1', '1']
+Paso 025: Cabeza:   7 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'Y', 'Y', 'Y', '#', '1'][q_copy, '1']['1']
+Paso 026: Cabeza:   8 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'Y', 'Y', 'Y', '#', '1', '1'][q_copy, '1'][None]
+Paso 027: Cabeza:   7 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'Y', 'Y', 'Y', '#', '1'][q_back, B]['1', '1']
+Paso 028: Cabeza:   6 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'Y', 'Y', 'Y', '#'][q_back, B]['1', '1', '1']
+Paso 029: Cabeza:   5 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'Y', 'Y', 'Y'][q_back, B]['#', '1', '1', '1']
+Paso 030: Cabeza:   4 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'Y', 'Y'][q_back, B]['Y', '#', '1', '1', '1']
+Paso 031: Cabeza:   3 | Estado: q_loop | Cache: B | Cinta: ['1', 'X', 'Y'][q_loop, B]['Y', 'Y', '#', '1', '1', '1']
+Paso 032: Cabeza:   2 | Estado: q_loop | Cache: B | Cinta: ['1', 'X'][q_loop, B]['Y', 'Y', 'Y', '#', '1', '1', '1']
+Paso 033: Cabeza:   1 | Estado: q_loop | Cache: B | Cinta: ['1'][q_loop, B]['X', 'Y', 'Y', 'Y', '#', '1', '1', '1']
+Paso 034: Cabeza:   2 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y'][q_copy, '1']['Y', 'Y', 'Y', '#', '1', '1', '1']
+Paso 035: Cabeza:   3 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y'][q_copy, '1']['Y', 'Y', '#', '1', '1', '1']
+Paso 036: Cabeza:   4 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y', 'Y'][q_copy, '1']['Y', '#', '1', '1', '1']
+Paso 037: Cabeza:   5 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y', 'Y', 'Y'][q_copy, '1']['#', '1', '1', '1']
+Paso 038: Cabeza:   6 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', '#'][q_copy, '1']['1', '1', '1']
+Paso 039: Cabeza:   7 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', '#', '1'][q_copy, '1']['1', '1']
+Paso 040: Cabeza:   8 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', '#', '1', '1'][q_copy, '1']['1']
+Paso 041: Cabeza:   9 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', '#', '1', '1', '1'][q_copy, '1'][None]
+Paso 042: Cabeza:   8 | Estado: q_back | Cache: B | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', '#', '1', '1'][q_back, B]['1', '1']
+Paso 043: Cabeza:   7 | Estado: q_back | Cache: B | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', '#', '1'][q_back, B]['1', '1', '1']
+Paso 044: Cabeza:   6 | Estado: q_back | Cache: B | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', '#'][q_back, B]['1', '1', '1', '1']
+Paso 045: Cabeza:   5 | Estado: q_back | Cache: B | Cinta: ['1', 'Y', 'Y', 'Y', 'Y'][q_back, B]['#', '1', '1', '1', '1']
+Paso 046: Cabeza:   4 | Estado: q_back | Cache: B | Cinta: ['1', 'Y', 'Y', 'Y'][q_back, B]['Y', '#', '1', '1', '1', '1']
+Paso 047: Cabeza:   3 | Estado: q_loop | Cache: B | Cinta: ['1', 'Y', 'Y'][q_loop, B]['Y', 'Y', '#', '1', '1', '1', '1']
+Paso 048: Cabeza:   2 | Estado: q_loop | Cache: B | Cinta: ['1', 'Y'][q_loop, B]['Y', 'Y', 'Y', '#', '1', '1', '1', '1']
+Paso 049: Cabeza:   1 | Estado: q_loop | Cache: B | Cinta: ['1'][q_loop, B]['Y', 'Y', 'Y', 'Y', '#', '1', '1', '1', '1']
+Paso 050: Cabeza:   0 | Estado: q_loop | Cache: B | Cinta: [][q_loop, B]['1', 'Y', 'Y', 'Y', 'Y', '#', '1', '1', '1', '1']
+Paso 051: Cabeza:   0 | Estado: q_loop | Cache: B | Cinta: [][q_loop, B][None, '1', 'Y', 'Y', 'Y', 'Y', '#', '1', '1', '1', '1']
+Paso 052: Cabeza:   1 | Estado: q_final | Cache: B | Cinta: [None][q_final, B]['1', 'Y', 'Y', 'Y', 'Y', '#', '1', '1', '1', '1']
+
+Resultado final: ACEPTADA
+Pasos totales: 52
+Tiempo de ejecución: 5917500 ns
+Cinta final: _1YYYY#1111
+======================================================================
+
+Simulando cadena: 111111
+----------------------------------------------------------------------
+Paso 000: Cabeza:   0 | Estado: q_init | Cache: B | Cinta: [][q_init, B]['1', '1', '1', '1', '1', '1']
+Paso 001: Cabeza:   1 | Estado: q_base_1 | Cache: B | Cinta: ['1'][q_base_1, B]['1', '1', '1', '1', '1']
+Paso 002: Cabeza:   2 | Estado: q_setup | Cache: B | Cinta: ['1', 'X'][q_setup, B]['1', '1', '1', '1']
+Paso 003: Cabeza:   3 | Estado: q_setup | Cache: B | Cinta: ['1', 'X', 'X'][q_setup, B]['1', '1', '1']
+Paso 004: Cabeza:   4 | Estado: q_setup | Cache: B | Cinta: ['1', 'X', 'X', 'X'][q_setup, B]['1', '1']
+Paso 005: Cabeza:   5 | Estado: q_setup | Cache: B | Cinta: ['1', 'X', 'X', 'X', 'X'][q_setup, B]['1']
+Paso 006: Cabeza:   6 | Estado: q_setup | Cache: B | Cinta: ['1', 'X', 'X', 'X', 'X', 'X'][q_setup, B][None]
+Paso 007: Cabeza:   5 | Estado: q_loop | Cache: B | Cinta: ['1', 'X', 'X', 'X', 'X'][q_loop, B]['X', '#']
+Paso 008: Cabeza:   6 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'X', 'X', 'Y'][q_copy, '1']['#']
+Paso 009: Cabeza:   7 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'X', 'X', 'Y', '#'][q_copy, '1'][None]
+Paso 010: Cabeza:   6 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'X', 'X', 'X', 'Y'][q_back, B]['#', '1']
+Paso 011: Cabeza:   5 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'X', 'X', 'X'][q_back, B]['Y', '#', '1']
+Paso 012: Cabeza:   4 | Estado: q_loop | Cache: B | Cinta: ['1', 'X', 'X', 'X'][q_loop, B]['X', 'Y', '#', '1']
+Paso 013: Cabeza:   5 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'X', 'Y'][q_copy, '1']['Y', '#', '1']
+Paso 014: Cabeza:   6 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'X', 'Y', 'Y'][q_copy, '1']['#', '1']
+Paso 015: Cabeza:   7 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'X', 'Y', 'Y', '#'][q_copy, '1']['1']
+Paso 016: Cabeza:   8 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'X', 'Y', 'Y', '#', '1'][q_copy, '1'][None]
+Paso 017: Cabeza:   7 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'X', 'X', 'Y', 'Y', '#'][q_back, B]['1', '1']
+Paso 018: Cabeza:   6 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'X', 'X', 'Y', 'Y'][q_back, B]['#', '1', '1']
+Paso 019: Cabeza:   5 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'X', 'X', 'Y'][q_back, B]['Y', '#', '1', '1']
+Paso 020: Cabeza:   4 | Estado: q_loop | Cache: B | Cinta: ['1', 'X', 'X', 'X'][q_loop, B]['Y', 'Y', '#', '1', '1']
+Paso 021: Cabeza:   3 | Estado: q_loop | Cache: B | Cinta: ['1', 'X', 'X'][q_loop, B]['X', 'Y', 'Y', '#', '1', '1']
+Paso 022: Cabeza:   4 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'Y'][q_copy, '1']['Y', 'Y', '#', '1', '1']
+Paso 023: Cabeza:   5 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'Y', 'Y'][q_copy, '1']['Y', '#', '1', '1']
+Paso 024: Cabeza:   6 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'Y', 'Y', 'Y'][q_copy, '1']['#', '1', '1']
+Paso 025: Cabeza:   7 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'Y', 'Y', 'Y', '#'][q_copy, '1']['1', '1']
+Paso 026: Cabeza:   8 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'Y', 'Y', 'Y', '#', '1'][q_copy, '1']['1']
+Paso 027: Cabeza:   9 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'Y', 'Y', 'Y', '#', '1', '1'][q_copy, '1'][None]
+Paso 028: Cabeza:   8 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'X', 'Y', 'Y', 'Y', '#', '1'][q_back, B]['1', '1']
+Paso 029: Cabeza:   7 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'X', 'Y', 'Y', 'Y', '#'][q_back, B]['1', '1', '1']
+Paso 030: Cabeza:   6 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'X', 'Y', 'Y', 'Y'][q_back, B]['#', '1', '1', '1']
+Paso 031: Cabeza:   5 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'X', 'Y', 'Y'][q_back, B]['Y', '#', '1', '1', '1']
+Paso 032: Cabeza:   4 | Estado: q_loop | Cache: B | Cinta: ['1', 'X', 'X', 'Y'][q_loop, B]['Y', 'Y', '#', '1', '1', '1']
+Paso 033: Cabeza:   3 | Estado: q_loop | Cache: B | Cinta: ['1', 'X', 'X'][q_loop, B]['Y', 'Y', 'Y', '#', '1', '1', '1']
+Paso 034: Cabeza:   2 | Estado: q_loop | Cache: B | Cinta: ['1', 'X'][q_loop, B]['X', 'Y', 'Y', 'Y', '#', '1', '1', '1']
+Paso 035: Cabeza:   3 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'Y'][q_copy, '1']['Y', 'Y', 'Y', '#', '1', '1', '1']
+Paso 036: Cabeza:   4 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'Y', 'Y'][q_copy, '1']['Y', 'Y', '#', '1', '1', '1']
+Paso 037: Cabeza:   5 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'Y', 'Y', 'Y'][q_copy, '1']['Y', '#', '1', '1', '1']
+Paso 038: Cabeza:   6 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'Y', 'Y', 'Y', 'Y'][q_copy, '1']['#', '1', '1', '1']
+Paso 039: Cabeza:   7 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'Y', 'Y', 'Y', 'Y', '#'][q_copy, '1']['1', '1', '1']
+Paso 040: Cabeza:   8 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'Y', 'Y', 'Y', 'Y', '#', '1'][q_copy, '1']['1', '1']
+Paso 041: Cabeza:   9 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'Y', 'Y', 'Y', 'Y', '#', '1', '1'][q_copy, '1']['1']
+Paso 042: Cabeza:  10 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'Y', 'Y', 'Y', 'Y', '#', '1', '1', '1'][q_copy, '1'][None]
+Paso 043: Cabeza:   9 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'Y', 'Y', 'Y', 'Y', '#', '1', '1'][q_back, B]['1', '1']
+Paso 044: Cabeza:   8 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'Y', 'Y', 'Y', 'Y', '#', '1'][q_back, B]['1', '1', '1']
+Paso 045: Cabeza:   7 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'Y', 'Y', 'Y', 'Y', '#'][q_back, B]['1', '1', '1', '1']
+Paso 046: Cabeza:   6 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'Y', 'Y', 'Y', 'Y'][q_back, B]['#', '1', '1', '1', '1']
+Paso 047: Cabeza:   5 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'Y', 'Y', 'Y'][q_back, B]['Y', '#', '1', '1', '1', '1']
+Paso 048: Cabeza:   4 | Estado: q_loop | Cache: B | Cinta: ['1', 'X', 'Y', 'Y'][q_loop, B]['Y', 'Y', '#', '1', '1', '1', '1']
+Paso 049: Cabeza:   3 | Estado: q_loop | Cache: B | Cinta: ['1', 'X', 'Y'][q_loop, B]['Y', 'Y', 'Y', '#', '1', '1', '1', '1']
+Paso 050: Cabeza:   2 | Estado: q_loop | Cache: B | Cinta: ['1', 'X'][q_loop, B]['Y', 'Y', 'Y', 'Y', '#', '1', '1', '1', '1']
+Paso 051: Cabeza:   1 | Estado: q_loop | Cache: B | Cinta: ['1'][q_loop, B]['X', 'Y', 'Y', 'Y', 'Y', '#', '1', '1', '1', '1']
+Paso 052: Cabeza:   2 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y'][q_copy, '1']['Y', 'Y', 'Y', 'Y', '#', '1', '1', '1', '1']
+Paso 053: Cabeza:   3 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y'][q_copy, '1']['Y', 'Y', 'Y', '#', '1', '1', '1', '1']
+Paso 054: Cabeza:   4 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y', 'Y'][q_copy, '1']['Y', 'Y', '#', '1', '1', '1', '1']
+Paso 055: Cabeza:   5 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y', 'Y', 'Y'][q_copy, '1']['Y', '#', '1', '1', '1', '1']
+Paso 056: Cabeza:   6 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', 'Y'][q_copy, '1']['#', '1', '1', '1', '1']
+Paso 057: Cabeza:   7 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', 'Y', '#'][q_copy, '1']['1', '1', '1', '1']
+Paso 058: Cabeza:   8 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', 'Y', '#', '1'][q_copy, '1']['1', '1', '1']
+Paso 059: Cabeza:   9 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', 'Y', '#', '1', '1'][q_copy, '1']['1', '1']
+Paso 060: Cabeza:  10 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', 'Y', '#', '1', '1', '1'][q_copy, '1']['1']
+Paso 061: Cabeza:  11 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', 'Y', '#', '1', '1', '1', '1'][q_copy, '1'][None]
+Paso 062: Cabeza:  10 | Estado: q_back | Cache: B | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', 'Y', '#', '1', '1', '1'][q_back, B]['1', '1']
+Paso 063: Cabeza:   9 | Estado: q_back | Cache: B | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', 'Y', '#', '1', '1'][q_back, B]['1', '1', '1']
+Paso 064: Cabeza:   8 | Estado: q_back | Cache: B | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', 'Y', '#', '1'][q_back, B]['1', '1', '1', '1']
+Paso 065: Cabeza:   7 | Estado: q_back | Cache: B | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', 'Y', '#'][q_back, B]['1', '1', '1', '1', '1']
+Paso 066: Cabeza:   6 | Estado: q_back | Cache: B | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', 'Y'][q_back, B]['#', '1', '1', '1', '1', '1']
+Paso 067: Cabeza:   5 | Estado: q_back | Cache: B | Cinta: ['1', 'Y', 'Y', 'Y', 'Y'][q_back, B]['Y', '#', '1', '1', '1', '1', '1']
+Paso 068: Cabeza:   4 | Estado: q_loop | Cache: B | Cinta: ['1', 'Y', 'Y', 'Y'][q_loop, B]['Y', 'Y', '#', '1', '1', '1', '1', '1']
+Paso 069: Cabeza:   3 | Estado: q_loop | Cache: B | Cinta: ['1', 'Y', 'Y'][q_loop, B]['Y', 'Y', 'Y', '#', '1', '1', '1', '1', '1']
+Paso 070: Cabeza:   2 | Estado: q_loop | Cache: B | Cinta: ['1', 'Y'][q_loop, B]['Y', 'Y', 'Y', 'Y', '#', '1', '1', '1', '1', '1']
+Paso 071: Cabeza:   1 | Estado: q_loop | Cache: B | Cinta: ['1'][q_loop, B]['Y', 'Y', 'Y', 'Y', 'Y', '#', '1', '1', '1', '1', '1']
+Paso 072: Cabeza:   0 | Estado: q_loop | Cache: B | Cinta: [][q_loop, B]['1', 'Y', 'Y', 'Y', 'Y', 'Y', '#', '1', '1', '1', '1', '1']
+Paso 073: Cabeza:   0 | Estado: q_loop | Cache: B | Cinta: [][q_loop, B][None, '1', 'Y', 'Y', 'Y', 'Y', 'Y', '#', '1', '1', '1', '1', '1']
+Paso 074: Cabeza:   1 | Estado: q_final | Cache: B | Cinta: [None][q_final, B]['1', 'Y', 'Y', 'Y', 'Y', 'Y', '#', '1', '1', '1', '1', '1']
+
+Resultado final: ACEPTADA
+Pasos totales: 74
+Tiempo de ejecución: 8338500 ns
+Cinta final: _1YYYYY#11111
+======================================================================
+
+Simulando cadena: 1111111
+----------------------------------------------------------------------
+Paso 000: Cabeza:   0 | Estado: q_init | Cache: B | Cinta: [][q_init, B]['1', '1', '1', '1', '1', '1', '1']
+Paso 001: Cabeza:   1 | Estado: q_base_1 | Cache: B | Cinta: ['1'][q_base_1, B]['1', '1', '1', '1', '1', '1']
+Paso 002: Cabeza:   2 | Estado: q_setup | Cache: B | Cinta: ['1', 'X'][q_setup, B]['1', '1', '1', '1', '1']
+Paso 003: Cabeza:   3 | Estado: q_setup | Cache: B | Cinta: ['1', 'X', 'X'][q_setup, B]['1', '1', '1', '1']
+Paso 004: Cabeza:   4 | Estado: q_setup | Cache: B | Cinta: ['1', 'X', 'X', 'X'][q_setup, B]['1', '1', '1']
+Paso 005: Cabeza:   5 | Estado: q_setup | Cache: B | Cinta: ['1', 'X', 'X', 'X', 'X'][q_setup, B]['1', '1']
+Paso 006: Cabeza:   6 | Estado: q_setup | Cache: B | Cinta: ['1', 'X', 'X', 'X', 'X', 'X'][q_setup, B]['1']
+Paso 007: Cabeza:   7 | Estado: q_setup | Cache: B | Cinta: ['1', 'X', 'X', 'X', 'X', 'X', 'X'][q_setup, B][None]
+Paso 008: Cabeza:   6 | Estado: q_loop | Cache: B | Cinta: ['1', 'X', 'X', 'X', 'X', 'X'][q_loop, B]['X', '#']
+Paso 009: Cabeza:   7 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'X', 'X', 'X', 'Y'][q_copy, '1']['#']
+Paso 010: Cabeza:   8 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'X', 'X', 'X', 'Y', '#'][q_copy, '1'][None]
+Paso 011: Cabeza:   7 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'X', 'X', 'X', 'X', 'Y'][q_back, B]['#', '1']
+Paso 012: Cabeza:   6 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'X', 'X', 'X', 'X'][q_back, B]['Y', '#', '1']
+Paso 013: Cabeza:   5 | Estado: q_loop | Cache: B | Cinta: ['1', 'X', 'X', 'X', 'X'][q_loop, B]['X', 'Y', '#', '1']
+Paso 014: Cabeza:   6 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'X', 'X', 'Y'][q_copy, '1']['Y', '#', '1']
+Paso 015: Cabeza:   7 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'X', 'X', 'Y', 'Y'][q_copy, '1']['#', '1']
+Paso 016: Cabeza:   8 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'X', 'X', 'Y', 'Y', '#'][q_copy, '1']['1']
+Paso 017: Cabeza:   9 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'X', 'X', 'Y', 'Y', '#', '1'][q_copy, '1'][None]
+Paso 018: Cabeza:   8 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'X', 'X', 'X', 'Y', 'Y', '#'][q_back, B]['1', '1']
+Paso 019: Cabeza:   7 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'X', 'X', 'X', 'Y', 'Y'][q_back, B]['#', '1', '1']
+Paso 020: Cabeza:   6 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'X', 'X', 'X', 'Y'][q_back, B]['Y', '#', '1', '1']
+Paso 021: Cabeza:   5 | Estado: q_loop | Cache: B | Cinta: ['1', 'X', 'X', 'X', 'X'][q_loop, B]['Y', 'Y', '#', '1', '1']
+Paso 022: Cabeza:   4 | Estado: q_loop | Cache: B | Cinta: ['1', 'X', 'X', 'X'][q_loop, B]['X', 'Y', 'Y', '#', '1', '1']
+Paso 023: Cabeza:   5 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'X', 'Y'][q_copy, '1']['Y', 'Y', '#', '1', '1']
+Paso 024: Cabeza:   6 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'X', 'Y', 'Y'][q_copy, '1']['Y', '#', '1', '1']
+Paso 025: Cabeza:   7 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'X', 'Y', 'Y', 'Y'][q_copy, '1']['#', '1', '1']
+Paso 026: Cabeza:   8 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'X', 'Y', 'Y', 'Y', '#'][q_copy, '1']['1', '1']
+Paso 027: Cabeza:   9 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'X', 'Y', 'Y', 'Y', '#', '1'][q_copy, '1']['1']
+Paso 028: Cabeza:  10 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'X', 'Y', 'Y', 'Y', '#', '1', '1'][q_copy, '1'][None]
+Paso 029: Cabeza:   9 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'X', 'X', 'Y', 'Y', 'Y', '#', '1'][q_back, B]['1', '1']
+Paso 030: Cabeza:   8 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'X', 'X', 'Y', 'Y', 'Y', '#'][q_back, B]['1', '1', '1']
+Paso 031: Cabeza:   7 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'X', 'X', 'Y', 'Y', 'Y'][q_back, B]['#', '1', '1', '1']
+Paso 032: Cabeza:   6 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'X', 'X', 'Y', 'Y'][q_back, B]['Y', '#', '1', '1', '1']
+Paso 033: Cabeza:   5 | Estado: q_loop | Cache: B | Cinta: ['1', 'X', 'X', 'X', 'Y'][q_loop, B]['Y', 'Y', '#', '1', '1', '1']
+Paso 034: Cabeza:   4 | Estado: q_loop | Cache: B | Cinta: ['1', 'X', 'X', 'X'][q_loop, B]['Y', 'Y', 'Y', '#', '1', '1', '1']
+Paso 035: Cabeza:   3 | Estado: q_loop | Cache: B | Cinta: ['1', 'X', 'X'][q_loop, B]['X', 'Y', 'Y', 'Y', '#', '1', '1', '1']
+Paso 036: Cabeza:   4 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'Y'][q_copy, '1']['Y', 'Y', 'Y', '#', '1', '1', '1']
+Paso 037: Cabeza:   5 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'Y', 'Y'][q_copy, '1']['Y', 'Y', '#', '1', '1', '1']
+Paso 038: Cabeza:   6 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'Y', 'Y', 'Y'][q_copy, '1']['Y', '#', '1', '1', '1']
+Paso 039: Cabeza:   7 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'Y', 'Y', 'Y', 'Y'][q_copy, '1']['#', '1', '1', '1']
+Paso 040: Cabeza:   8 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'Y', 'Y', 'Y', 'Y', '#'][q_copy, '1']['1', '1', '1']
+Paso 041: Cabeza:   9 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'Y', 'Y', 'Y', 'Y', '#', '1'][q_copy, '1']['1', '1']
+Paso 042: Cabeza:  10 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'Y', 'Y', 'Y', 'Y', '#', '1', '1'][q_copy, '1']['1']
+Paso 043: Cabeza:  11 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'X', 'Y', 'Y', 'Y', 'Y', '#', '1', '1', '1'][q_copy, '1'][None]
+Paso 044: Cabeza:  10 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'X', 'Y', 'Y', 'Y', 'Y', '#', '1', '1'][q_back, B]['1', '1']
+Paso 045: Cabeza:   9 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'X', 'Y', 'Y', 'Y', 'Y', '#', '1'][q_back, B]['1', '1', '1']
+Paso 046: Cabeza:   8 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'X', 'Y', 'Y', 'Y', 'Y', '#'][q_back, B]['1', '1', '1', '1']
+Paso 047: Cabeza:   7 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'X', 'Y', 'Y', 'Y', 'Y'][q_back, B]['#', '1', '1', '1', '1']
+Paso 048: Cabeza:   6 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'X', 'Y', 'Y', 'Y'][q_back, B]['Y', '#', '1', '1', '1', '1']
+Paso 049: Cabeza:   5 | Estado: q_loop | Cache: B | Cinta: ['1', 'X', 'X', 'Y', 'Y'][q_loop, B]['Y', 'Y', '#', '1', '1', '1', '1']
+Paso 050: Cabeza:   4 | Estado: q_loop | Cache: B | Cinta: ['1', 'X', 'X', 'Y'][q_loop, B]['Y', 'Y', 'Y', '#', '1', '1', '1', '1']
+Paso 051: Cabeza:   3 | Estado: q_loop | Cache: B | Cinta: ['1', 'X', 'X'][q_loop, B]['Y', 'Y', 'Y', 'Y', '#', '1', '1', '1', '1']
+Paso 052: Cabeza:   2 | Estado: q_loop | Cache: B | Cinta: ['1', 'X'][q_loop, B]['X', 'Y', 'Y', 'Y', 'Y', '#', '1', '1', '1', '1']
+Paso 053: Cabeza:   3 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'Y'][q_copy, '1']['Y', 'Y', 'Y', 'Y', '#', '1', '1', '1', '1']
+Paso 054: Cabeza:   4 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'Y', 'Y'][q_copy, '1']['Y', 'Y', 'Y', '#', '1', '1', '1', '1']
+Paso 055: Cabeza:   5 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'Y', 'Y', 'Y'][q_copy, '1']['Y', 'Y', '#', '1', '1', '1', '1']
+Paso 056: Cabeza:   6 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'Y', 'Y', 'Y', 'Y'][q_copy, '1']['Y', '#', '1', '1', '1', '1']
+Paso 057: Cabeza:   7 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'Y', 'Y', 'Y', 'Y', 'Y'][q_copy, '1']['#', '1', '1', '1', '1']
+Paso 058: Cabeza:   8 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'Y', 'Y', 'Y', 'Y', 'Y', '#'][q_copy, '1']['1', '1', '1', '1']
+Paso 059: Cabeza:   9 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'Y', 'Y', 'Y', 'Y', 'Y', '#', '1'][q_copy, '1']['1', '1', '1']
+Paso 060: Cabeza:  10 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'Y', 'Y', 'Y', 'Y', 'Y', '#', '1', '1'][q_copy, '1']['1', '1']
+Paso 061: Cabeza:  11 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'Y', 'Y', 'Y', 'Y', 'Y', '#', '1', '1', '1'][q_copy, '1']['1']
+Paso 062: Cabeza:  12 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'X', 'Y', 'Y', 'Y', 'Y', 'Y', '#', '1', '1', '1', '1'][q_copy, '1'][None]
+Paso 063: Cabeza:  11 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'Y', 'Y', 'Y', 'Y', 'Y', '#', '1', '1', '1'][q_back, B]['1', '1']
+Paso 064: Cabeza:  10 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'Y', 'Y', 'Y', 'Y', 'Y', '#', '1', '1'][q_back, B]['1', '1', '1']
+Paso 065: Cabeza:   9 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'Y', 'Y', 'Y', 'Y', 'Y', '#', '1'][q_back, B]['1', '1', '1', '1']
+Paso 066: Cabeza:   8 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'Y', 'Y', 'Y', 'Y', 'Y', '#'][q_back, B]['1', '1', '1', '1', '1']
+Paso 067: Cabeza:   7 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'Y', 'Y', 'Y', 'Y', 'Y'][q_back, B]['#', '1', '1', '1', '1', '1']
+Paso 068: Cabeza:   6 | Estado: q_back | Cache: B | Cinta: ['1', 'X', 'Y', 'Y', 'Y', 'Y'][q_back, B]['Y', '#', '1', '1', '1', '1', '1']
+Paso 069: Cabeza:   5 | Estado: q_loop | Cache: B | Cinta: ['1', 'X', 'Y', 'Y', 'Y'][q_loop, B]['Y', 'Y', '#', '1', '1', '1', '1', '1']
+Paso 070: Cabeza:   4 | Estado: q_loop | Cache: B | Cinta: ['1', 'X', 'Y', 'Y'][q_loop, B]['Y', 'Y', 'Y', '#', '1', '1', '1', '1', '1']
+Paso 071: Cabeza:   3 | Estado: q_loop | Cache: B | Cinta: ['1', 'X', 'Y'][q_loop, B]['Y', 'Y', 'Y', 'Y', '#', '1', '1', '1', '1', '1']
+Paso 072: Cabeza:   2 | Estado: q_loop | Cache: B | Cinta: ['1', 'X'][q_loop, B]['Y', 'Y', 'Y', 'Y', 'Y', '#', '1', '1', '1', '1', '1']
+Paso 073: Cabeza:   1 | Estado: q_loop | Cache: B | Cinta: ['1'][q_loop, B]['X', 'Y', 'Y', 'Y', 'Y', 'Y', '#', '1', '1', '1', '1', '1']
+Paso 074: Cabeza:   2 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y'][q_copy, '1']['Y', 'Y', 'Y', 'Y', 'Y', '#', '1', '1', '1', '1', '1']
+Paso 075: Cabeza:   3 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y'][q_copy, '1']['Y', 'Y', 'Y', 'Y', '#', '1', '1', '1', '1', '1']
+Paso 076: Cabeza:   4 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y', 'Y'][q_copy, '1']['Y', 'Y', 'Y', '#', '1', '1', '1', '1', '1']
+Paso 077: Cabeza:   5 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y', 'Y', 'Y'][q_copy, '1']['Y', 'Y', '#', '1', '1', '1', '1', '1']
+Paso 078: Cabeza:   6 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', 'Y'][q_copy, '1']['Y', '#', '1', '1', '1', '1', '1']
+Paso 079: Cabeza:   7 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y'][q_copy, '1']['#', '1', '1', '1', '1', '1']
+Paso 080: Cabeza:   8 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '#'][q_copy, '1']['1', '1', '1', '1', '1']
+Paso 081: Cabeza:   9 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '#', '1'][q_copy, '1']['1', '1', '1', '1']
+Paso 082: Cabeza:  10 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '#', '1', '1'][q_copy, '1']['1', '1', '1']
+Paso 083: Cabeza:  11 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '#', '1', '1', '1'][q_copy, '1']['1', '1']
+Paso 084: Cabeza:  12 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '#', '1', '1', '1', '1'][q_copy, '1']['1']
+Paso 085: Cabeza:  13 | Estado: q_copy | Cache: '1' | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '#', '1', '1', '1', '1', '1'][q_copy, '1'][None]
+Paso 086: Cabeza:  12 | Estado: q_back | Cache: B | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '#', '1', '1', '1', '1'][q_back, B]['1', '1']
+Paso 087: Cabeza:  11 | Estado: q_back | Cache: B | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '#', '1', '1', '1'][q_back, B]['1', '1', '1']
+Paso 088: Cabeza:  10 | Estado: q_back | Cache: B | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '#', '1', '1'][q_back, B]['1', '1', '1', '1']
+Paso 089: Cabeza:   9 | Estado: q_back | Cache: B | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '#', '1'][q_back, B]['1', '1', '1', '1', '1']
+Paso 090: Cabeza:   8 | Estado: q_back | Cache: B | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '#'][q_back, B]['1', '1', '1', '1', '1', '1']
+Paso 091: Cabeza:   7 | Estado: q_back | Cache: B | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y'][q_back, B]['#', '1', '1', '1', '1', '1', '1']
+Paso 092: Cabeza:   6 | Estado: q_back | Cache: B | Cinta: ['1', 'Y', 'Y', 'Y', 'Y', 'Y'][q_back, B]['Y', '#', '1', '1', '1', '1', '1', '1']
+Paso 093: Cabeza:   5 | Estado: q_loop | Cache: B | Cinta: ['1', 'Y', 'Y', 'Y', 'Y'][q_loop, B]['Y', 'Y', '#', '1', '1', '1', '1', '1', '1']
+Paso 094: Cabeza:   4 | Estado: q_loop | Cache: B | Cinta: ['1', 'Y', 'Y', 'Y'][q_loop, B]['Y', 'Y', 'Y', '#', '1', '1', '1', '1', '1', '1']
+Paso 095: Cabeza:   3 | Estado: q_loop | Cache: B | Cinta: ['1', 'Y', 'Y'][q_loop, B]['Y', 'Y', 'Y', 'Y', '#', '1', '1', '1', '1', '1', '1']
+Paso 096: Cabeza:   2 | Estado: q_loop | Cache: B | Cinta: ['1', 'Y'][q_loop, B]['Y', 'Y', 'Y', 'Y', 'Y', '#', '1', '1', '1', '1', '1', '1']
+Paso 097: Cabeza:   1 | Estado: q_loop | Cache: B | Cinta: ['1'][q_loop, B]['Y', 'Y', 'Y', 'Y', 'Y', 'Y', '#', '1', '1', '1', '1', '1', '1']
+Paso 098: Cabeza:   0 | Estado: q_loop | Cache: B | Cinta: [][q_loop, B]['1', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '#', '1', '1', '1', '1', '1', '1']
+Paso 099: Cabeza:   0 | Estado: q_loop | Cache: B | Cinta: [][q_loop, B][None, '1', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '#', '1', '1', '1', '1', '1', '1']
+Paso 100: Cabeza:   1 | Estado: q_final | Cache: B | Cinta: [None][q_final, B]['1', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '#', '1', '1', '1', '1', '1', '1']
+
+Resultado final: ACEPTADA
+Pasos totales: 100
+Tiempo de ejecución: 6688000 ns
+Cinta final: _1YYYYYY#111111
+======================================================================
+
+CADENAS INTERACTIVAS
+======================================================================
+
